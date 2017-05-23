@@ -6,11 +6,8 @@ package metodosOrdenacao;
 public class Main {
 
     public static void main(String[] args) {
-        int tamanho = 100000;
+        int tamanho = 50000;
         int vetor[] = Metodos.gerarVetorRandomico(tamanho);
-
-        System.out.println("Vetor:");
-        //  Metodos.printVetor(vetor);
 
         //######################## Inicio InsertionSort ########################
         System.out.println("\nMetodos\n-------------InsertionSort-------------");
@@ -22,7 +19,7 @@ public class Main {
         System.out.printf("%.3f ms%n", (tempoFinalIS - tempoInicialIS) / 1000d);
 
         Metodos.testarOrdenacao(vIS);
-        //Metodos.printVetor(vIS);
+        //  Metodos.printVetor(vIS);
         //######################## Fim InsertionSort ###########################
         //######################## Inicio SelectionSort ########################
         System.out.println("-------------SelectionSort-------------");
@@ -34,7 +31,7 @@ public class Main {
         System.out.printf("%.3f ms%n", (tempoFinalSS - tempoInicialSS) / 1000d);
 
         Metodos.testarOrdenacao(vSS);
-//        Metodos.printVetor(vSS);
+        //  Metodos.printVetor(vSS);
         //######################## Fim SelectionSort ###########################
 
         //######################## Inicio BubbleSort ###########################
@@ -47,8 +44,7 @@ public class Main {
         System.out.printf("%.3f ms%n", (tempoFinalBS - tempoInicialBS) / 1000d);
 
         Metodos.testarOrdenacao(vBS);
-//        Metodos.printVetor(vBS);
-
+        //Metodos.printVetor(vBS);
         //######################## Fim BubbleSort #############################
         //######################## Inicio ShellSort ############################
         System.out.println("-------------ShellSort-------------");
@@ -60,9 +56,53 @@ public class Main {
         System.out.printf("%.3f ms%n", (tempoFinalShellS - tempoInicialShellS) / 1000d);
 
         Metodos.testarOrdenacao(vShellS);
-//        Metodos.printVetor(vShellS);
+        //Metodos.printVetor(vShellS);
         //######################## Fim ShellSort ############################
 
+        //######################## Inicio MergeSort ############################
+        System.out.println("-------------MergeSort-------------");
+        long tempoInicialMS = System.currentTimeMillis();
+
+        int vMergeS[] = Metodos.MergeSort(vetor);
+
+        long tempoFinalMS = System.currentTimeMillis();
+        System.out.printf("%.3f ms%n", (tempoFinalMS - tempoInicialMS) / 1000d);
+
+        Metodos.testarOrdenacao(vMergeS);
+        //Metodos.printVetor(vMergeS);
+        //######################## Fim MergeSort ############################
+
+        //######################## Inicio HeapSort ############################
+        System.out.println("-------------HeapSort-------------");
+        long tempoInicialHS = System.currentTimeMillis();
+
+        Metodos.HeapSort(vetor);
+
+        long tempoFinalHS = System.currentTimeMillis();
+        System.out.printf("%.3f ms%n", (tempoFinalHS - tempoInicialHS) / 1000d);
+
+        //######################## Fim HeapSort ############################
+        
+        //######################## Inicio QuickSort ############################
+        System.out.println("-------------QuickSort-------------");
+        long tempoInicialQS = System.currentTimeMillis();
+
+        Metodos.QuickSort(vetor, 0, vetor.length - 1);
+
+        long tempoFinalQS = System.currentTimeMillis();
+        System.out.printf("%.3f ms%n", (tempoFinalQS - tempoInicialQS) / 1000d);
+
+        //######################## Fim QuickSort ############################
+        //######################## Inicio RadixSort ############################
+        System.out.println("-------------RadixSort-------------");
+        long tempoInicialRS = System.currentTimeMillis();
+
+        Metodos.RadixSort(vetor);
+
+        long tempoFinalRS = System.currentTimeMillis();
+        System.out.printf("%.3f ms%n", (tempoFinalRS - tempoInicialRS) / 1000d);
+
+        //######################## Fim RadixSort ############################
     }
 
 }
